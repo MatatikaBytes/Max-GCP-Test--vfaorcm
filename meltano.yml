@@ -16,6 +16,9 @@ plugins:
   - name: tap-mssql
     variant: matatika
     pip_url: git+https://github.com/Matatika/pipelinewise-tap-mssql.git@v1.0.3
+  - name: tap-rest-api-msdk
+    variant: widen
+    pip_url: tap-rest-api-msdk
   loaders:
   - name: target-postgres
     variant: matatika

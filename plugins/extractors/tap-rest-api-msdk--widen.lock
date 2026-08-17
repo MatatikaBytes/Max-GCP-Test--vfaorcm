@@ -1,0 +1,202 @@
+{
+  "plugin_type": "extractors",
+  "name": "tap-rest-api-msdk",
+  "namespace": "tap_rest_api_msdk",
+  "variant": "widen",
+  "label": "REST API",
+  "docs": "https://www.matatika.com/data-details/tap-rest-api-msdk/",
+  "repo": "https://github.com/Widen/tap-rest-api-msdk",
+  "pip_url": "tap-rest-api-msdk",
+  "description": "REST API",
+  "logo_url": "/assets/logos/extractors/restapi.png",
+  "capabilities": [
+    "catalog",
+    "discover",
+    "schema-flattening",
+    "state",
+    "about",
+    "stream-maps"
+  ],
+  "settings": [
+    {
+      "name": "api_url",
+      "kind": "string",
+      "label": "API URL",
+      "description": "The URL endpoint for the REST API.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "next_page_token_path",
+      "kind": "string",
+      "label": "Next Page Token Path",
+      "description": "The JSON path to the token used to retrieve the next page of results.",
+      "hidden": false,
+      "sensitive": true,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "pagination_request_style",
+      "kind": "string",
+      "label": "Pagination Request Style",
+      "description": "The style of pagination request to use (e.g. offset, cursor).",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "pagination_response_style",
+      "kind": "string",
+      "label": "Pagination Response Style",
+      "description": "The style of pagination response returned by the API (e.g. links, metadata).",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "pagination_page_size",
+      "kind": "integer",
+      "label": "Pagination Page Size",
+      "description": "The number of records to retrieve per page.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "path",
+      "kind": "string",
+      "label": "Path",
+      "description": "The path to the endpoint for the desired resource.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "params",
+      "kind": "object",
+      "label": "Params",
+      "description": "The query parameters to include in the API request.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "headers",
+      "kind": "object",
+      "label": "Headers",
+      "description": "The headers to include in the API request.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "records_path",
+      "kind": "string",
+      "label": "Records Path",
+      "description": "The JSON path to the array of records in the API response.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "primary_keys",
+      "kind": "array",
+      "label": "Primary Keys",
+      "description": "The field(s) used as the primary key(s) for the data.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "replication_key",
+      "kind": "string",
+      "label": "Replication Key",
+      "description": "The field used to track changes in the data for incremental replication.",
+      "hidden": false,
+      "sensitive": true,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "except_keys",
+      "kind": "array",
+      "label": "Except Keys",
+      "description": "The field(s) to exclude from the data.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "num_inference_records",
+      "kind": "integer",
+      "label": "Num Inference Records",
+      "description": "The number of records to use for inferring the schema of the data.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "streams",
+      "kind": "array",
+      "label": "Streams",
+      "description": "The list of streams to replicate data from.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "stream_maps",
+      "kind": "object",
+      "label": "Stream Maps",
+      "description": "The mapping of source streams to destination tables.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "stream_map_config",
+      "kind": "object",
+      "label": "Stream Map Config",
+      "description": "The configuration for each stream map.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "flattening_enabled",
+      "kind": "boolean",
+      "label": "Flattening Enabled",
+      "description": "Whether or not to flatten nested JSON data.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "flattening_max_depth",
+      "kind": "integer",
+      "label": "Flattening Max Depth",
+      "description": "The maximum depth to flatten nested JSON data.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    }
+  ]
+}
