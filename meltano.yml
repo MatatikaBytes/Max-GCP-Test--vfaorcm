@@ -13,6 +13,9 @@ plugins:
   - name: tap-salesforce
     variant: matatika
     pip_url: git+https://github.com/Matatika/tap-salesforce.git@v1.5.3
+  - name: tap-mssql
+    variant: matatika
+    pip_url: git+https://github.com/Matatika/pipelinewise-tap-mssql.git@v1.0.3
   loaders:
   - name: target-postgres
     variant: matatika
