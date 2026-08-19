@@ -19,6 +19,9 @@ plugins:
   - name: tap-rest-api-msdk
     variant: widen
     pip_url: tap-rest-api-msdk
+  - name: tap-hubspot
+    variant: meltanolabs
+    pip_url: git+https://github.com/MeltanoLabs/tap-hubspot.git@v0.9.1
   loaders:
   - name: target-postgres
     variant: matatika

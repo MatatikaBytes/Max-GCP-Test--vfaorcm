@@ -1,0 +1,97 @@
+{
+  "plugin_type": "extractors",
+  "name": "tap-hubspot",
+  "namespace": "tap_hubspot",
+  "variant": "meltanolabs",
+  "label": "Hubspot",
+  "docs": "https://www.matatika.com/data-details/tap-hubspot/",
+  "repo": "https://github.com/MeltanoLabs/tap-hubspot",
+  "pip_url": "git+https://github.com/MeltanoLabs/tap-hubspot.git@v0.9.1",
+  "description": "HubSpot is a CRM platform that provides tools for marketing, sales, and customer service.\n\n### Prerequisites\n\nTo connect to HubSpot, you will need a **Private App access token**:\n\n1. In your HubSpot account, go to **Settings \u2192 Integrations \u2192 Private Apps**\n2. Create a new private app and grant the scopes required for the streams you want to sync (see **Required Scopes** below)\n3. Copy the generated access token\n\n### Setup\n\nIn Meltano:\n\n1. Enter your HubSpot access token\n2. Set a start date for the initial extraction\n3. Optionally configure `custom_object_types` if you want to sync HubSpot custom CRM objects (Enterprise plan required)\n\n### Available Streams\n\n| Stream | Replication | Description |\n|--------|-------------|-------------|\n| `contacts` | Incremental | People in your HubSpot CRM |\n| `companies` | Incremental | Company records in your CRM |\n| `deals` | Incremental | Sales opportunities and pipeline deals |\n| `leads` | Incremental | Individual sales leads (`objectTypeId: 0-136`) |\n| `line_items` | Incremental | Products attached to deals |\n| `goal_targets` | Incremental | Sales and activity goal records |\n| `calls` | Incremental | Call engagement records |\n| `communications` | Incremental | Communication engagement records |\n| `emails` | Incremental | Email engagement records |\n| `meetings` | Incremental | Meeting engagement records |\n| `notes` | Incremental | Note engagement records |\n| `postal_mail` | Incremental | Postal mail engagement records |\n| `tasks` | Incremental | Task engagement records |\n| `owners` | Full Table | HubSpot users who own CRM records |\n| `users` | Full Table | Users in your HubSpot account |\n| `teams` | Full Table | HubSpot Teams and their member user IDs |\n| `products` | Full Table | Product library items |\n| `tickets` | Full Table | Customer support tickets |\n| `quotes` | Full Table | Sales quotes |\n| `feedback_submissions` | Full Table | Customer feedback survey responses |\n| `ticket_pipelines` | Full Table | Ticket pipeline and stage definitions |\n| `deal_pipelines` | Full Table | Deal pipeline and stage definitions |\n| `email_subscriptions` | Full Table | Email subscription type definitions |\n| `properties` | Full Table | Property definitions for all CRM object types |\n\nCustom CRM object streams are created dynamically based on the `custom_object_types` setting.\nEach configured object type becomes its own stream named after the object's `fullyQualifiedName`\n(e.g. `p12345_patches`). Schemas are discovered automatically at sync time. Incremental replication\nuses `hs_lastmodifieddate`; falls back to full-table refresh if the property is absent.\n\n### Stream Fields\n\n#### `teams`\n\n| Field | Description |\n|-------|-------------|\n| `id` | Unique HubSpot ID for the team |\n| `name` | Display name of the team |\n| `userIds` | Array of HubSpot user IDs who are primary members of the team |\n| `secondaryUserIds` | Array of HubSpot user IDs who are secondary members of the team |\n\n### Required Scopes\n\n| Stream | Required Scope |\n|--------|----------------|\n| `contacts` | `crm.objects.contacts.read` |\n| `companies` | `crm.objects.companies.read` |\n| `deals` | `crm.objects.deals.read` |\n| `leads` | `crm.objects.leads.read` |\n| `owners` | `crm.objects.owners.read` |\n| `users` | `settings.users.read` |\n| `teams` | `settings.users.teams.read` |\n| `feedback_submissions` | `crm.objects.feedback_submissions.read` |\n| `calls` | `crm.objects.calls.read` |\n| `communications` | `crm.objects.communications.read` |\n| `emails` | `sales-email-read` |\n| `meetings` | `crm.objects.meetings.read` |\n| `notes` | `crm.objects.notes.read` |\n| `postal_mail` | `crm.objects.postal_mail.read` |\n| `tasks` | `crm.objects.tasks.read` |\n| `line_items` | `e-commerce` |\n| `products` | `e-commerce` |\n| `tickets` | `tickets` |\n| `ticket_pipelines` | `tickets` |\n| `deal_pipelines` | `crm.objects.deals.read` |\n| `quotes` | `crm.objects.quotes.read` |\n| `goal_targets` | `crm.objects.goals.read` |\n| `email_subscriptions` | `content` |\n| `properties` | same scopes as the corresponding object type |\n| `custom objects` | `crm.objects.custom.read` and `crm.schemas.custom.read` (Enterprise only) |\n",
+  "logo_url": "/assets/logos/extractors/hubspot.png",
+  "capabilities": [
+    "catalog",
+    "discover",
+    "schema-flattening",
+    "batch",
+    "state",
+    "about",
+    "structured-logging",
+    "stream-maps",
+    "activate-version"
+  ],
+  "settings": [
+    {
+      "name": "access_token",
+      "kind": "string",
+      "label": "Access Token",
+      "description": "HubSpot Private App access token",
+      "hidden": false,
+      "sensitive": true,
+      "required": "true",
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "start_date",
+      "kind": "date_iso8601",
+      "label": "Start Date",
+      "description": "Earliest record date to sync",
+      "hidden": false,
+      "sensitive": false,
+      "required": "true",
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "end_date",
+      "kind": "date_iso8601",
+      "label": "End Date",
+      "description": "Latest record date to sync",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "custom_object_types",
+      "kind": "array",
+      "label": "Custom Object Types",
+      "description": "List of HubSpot custom CRM object type names to sync (e.g. ['p12345_patches']). Use the fullyQualifiedName from HubSpot Settings \u2192 Objects \u2192 Custom objects. Requires a HubSpot Enterprise plan and the crm.objects.custom.read and crm.schemas.custom.read scopes.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "flattening_enabled",
+      "kind": "boolean",
+      "label": "Flattening Enabled",
+      "description": "A boolean value indicating whether or not to flatten the response data.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "flattening_max_depth",
+      "kind": "integer",
+      "label": "Flattening Max Depth",
+      "description": "An integer value indicating the maximum depth to flatten the response data.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "stream_maps",
+      "kind": "object",
+      "label": "Stream Maps",
+      "description": "Config object for stream maps capability. For more information check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).",
+      "hidden": true,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    }
+  ]
+}
