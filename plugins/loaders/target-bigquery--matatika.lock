@@ -11,8 +11,8 @@
   "description": "Google BigQuery is a cloud-based data warehousing and analytics platform. \n\nGoogle BigQuery allows users to store, manage, and analyze large datasets using SQL-like queries. It is designed to handle petabyte-scale datasets and can be integrated with other Google Cloud Platform services. BigQuery also offers real-time data streaming and machine learning capabilities, making it a powerful tool for data-driven decision making. Its serverless architecture means that users only pay for the queries they run, making it a cost-effective solution for businesses of all sizes.",
   "logo_url": "/assets/logos/loaders/bigquery.png",
   "capabilities": [
-    "schema-flattening",
     "about",
+    "schema-flattening",
     "stream-maps"
   ],
   "settings": [

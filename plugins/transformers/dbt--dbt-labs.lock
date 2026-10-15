@@ -103,13 +103,13 @@
       "args": "docs generate",
       "description": "Generate documentation artifacts for your project."
     },
-    "run": {
-      "args": "run",
-      "description": "Compile SQL and execute against the current target database."
-    },
     "deps": {
       "args": "deps",
       "description": "Pull the most recent version of the dependencies listed in packages.yml"
+    },
+    "run": {
+      "args": "run",
+      "description": "Compile SQL and execute against the current target database."
     },
     "clean": {
       "args": "clean",

@@ -12,8 +12,8 @@
   "logo_url": "https://www.gov.uk/assets/government-frontend/national-statistics-21661e9982d6f605259af3673ea887a18ecd817763b1a62b154d3551a1f1d1b2.png",
   "capabilities": [
     "catalog",
-    "state",
-    "discover"
+    "discover",
+    "state"
   ],
   "settings": [
     {

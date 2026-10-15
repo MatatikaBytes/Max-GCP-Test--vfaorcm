@@ -29,6 +29,9 @@ plugins:
   - name: target-bigquery
     variant: matatika
     pip_url: git+https://github.com/Matatika/target-bigquery.git@v1.0
+  - name: target-snowflake
+    variant: meltanolabs
+    pip_url: "'meltanolabs-target-snowflake[snowpipe] @ git+https://github.com/MeltanoLabs/target-snowflake.git@v0.20.2'"
   transformers:
   - name: dbt
     variant: dbt-labs
@@ -41,6 +44,18 @@ plugins:
   - name: files-melty-ai
     variant: matatika
     pip_url: git+https://github.com/meltano/files-melty-ai@2f6323abc408022c0ea2e1365080a6c330e6c8ef
+  - name: analyze-dbt-models
+    variant: matatika
+    pip_url: git+https://github.com/Matatika/analyze-dbt-models@v0.4.0
+    requires:
+      transformers:
+      - name: dbt
+        variant: dbt-labs
+      utilities:
+      - name: dbt-artifacts
+        variant: matatika
+      - name: matatika
+        variant: matatika
   utilities:
   - name: matatika
     variant: matatika

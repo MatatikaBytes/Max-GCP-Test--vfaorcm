@@ -10,11 +10,11 @@
   "description": "REST API",
   "logo_url": "/assets/logos/extractors/restapi.png",
   "capabilities": [
+    "about",
     "catalog",
     "discover",
     "schema-flattening",
     "state",
-    "about",
     "stream-maps"
   ],
   "settings": [
