@@ -48,6 +48,7 @@ recorded here.
 - **Type:** INGESTION
 - **Schedule:** `@daily`
 - **Data components:** `tap-facebook--facebook-ads` (tap-facebook, matatika) → `Warehouse` (target-postgres, matatika)
+- **Tables loaded:** `analytics.adaccounts`, `analytics.adlabels`, `analytics.ads`, `analytics.adsets`, `analytics.adsinsights_default`, `analytics.campaigns`, `analytics.creatives`, `analytics.customaudiences`, `analytics.customconversions`, `analytics.images`, `analytics.recommendations`, `analytics.tracking`, `analytics.videos`, `analytics.videothumbnails`
 - **Timeout:** 3600s
 - **Max retries:** 0
 
