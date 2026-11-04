@@ -25,6 +25,7 @@ recorded here.
 ## Plugins
 
 - extractor `tap-facebook` (matatika) — `git+https://github.com/Matatika/tap-facebook.git@v0.5.0`
+- extractor `tap-facebook-systemtoken` (matatika) — `git+https://github.com/Matatika/tap-facebook.git`
 - extractor `tap-govuk-weekly-road-fuel-prices` (matatika) — `git+https://github.com/Matatika/tap-spreadsheets-anywhere.git@v0.5.3`
 - extractor `tap-hubspot` (meltanolabs) — `git+https://github.com/MeltanoLabs/tap-hubspot.git@v0.9.1`
 - extractor `tap-mssql` (matatika) — `git+https://github.com/Matatika/pipelinewise-tap-mssql.git@v1.0.3`
@@ -41,6 +42,14 @@ recorded here.
 - utility `matatika` (matatika) — `matatika~=1.17.1`
 
 ## Pipelines
+
+### Facebook Ads (`facebook-ads`)
+
+- **Type:** INGESTION
+- **Schedule:** `@daily`
+- **Data components:** `tap-facebook--facebook-ads` (tap-facebook, matatika) → `Warehouse` (target-postgres, matatika)
+- **Timeout:** 3600s
+- **Max retries:** 0
 
 ### Hubspot (`hubspot`)
 

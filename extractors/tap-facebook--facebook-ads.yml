@@ -1,0 +1,7 @@
+plugins:
+  extractors:
+  - name: tap-facebook--facebook-ads
+    inherit_from: tap-facebook
+    annotations:
+      meltano-cloud:
+        ingestion: facebook-ads
